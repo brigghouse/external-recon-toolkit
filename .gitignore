@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+.env.*
+
+# Generated reports (not for version control)
+reports/
+
+# Compressed archives
+*.zip
+*.tar.gz
+*.gz
+
+# macOS metadata
+.DS_Store
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# pytest cache
+.pytest_cache/
+
+# mypy / type checker cache
+.mypy_cache/

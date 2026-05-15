@@ -1,0 +1,185 @@
+# Domain Doctor Report — brighousesec.com
+
+| Field | Value |
+|-------|-------|
+| Generated | 2026-05-15 18:38 UTC |
+| Tool | BSL Domain Doctor v1.0.0 — Brighouse Security Labs |
+| Trust Posture | **Needs Attention** |
+| Risk Score | **37/100** |
+| MX Provider | IONOS |
+
+---
+
+## Executive Summary
+
+This report summarises the external DNS and email security posture for **brighousesec.com**. It is produced as part of an authorised external security review.
+
+The domain received a risk score of **37/100** (higher = more risk) with a trust posture of **Needs Attention**.
+
+---
+
+## DNS Overview
+
+### A Records
+- `35.157.26.135`
+- `63.176.8.218`
+
+### AAAA Records
+- _None found_
+
+### MX Records
+- `10 mx01.ionos.es.`
+- `10 mx00.ionos.es.`
+
+### NS Records
+- `dns2.p06.nsone.net.`
+- `dns3.p06.nsone.net.`
+- `dns1.p06.nsone.net.`
+- `dns4.p06.nsone.net.`
+
+### TXT Records
+- `v=spf1 include:_spf-eu.ionos.com ~all`
+
+### CAA Records
+- _None found_
+
+---
+
+## Email Authentication Review
+
+**Detected MX Provider:** IONOS
+
+### DKIM Selector Probe (Passive)
+
+| Selector | Lookup | Found |
+|----------|--------|-------|
+| `default` | `default._domainkey.brighousesec.com` | ❌ No |
+| `google` | `google._domainkey.brighousesec.com` | ❌ No |
+| `selector1` | `selector1._domainkey.brighousesec.com` | ❌ No |
+| `selector2` | `selector2._domainkey.brighousesec.com` | ❌ No |
+| `s1` | `s1._domainkey.brighousesec.com` | ❌ No |
+| `s2` | `s2._domainkey.brighousesec.com` | ❌ No |
+| `k1` | `k1._domainkey.brighousesec.com` | ❌ No |
+| `smtp` | `smtp._domainkey.brighousesec.com` | ❌ No |
+| `mail` | `mail._domainkey.brighousesec.com` | ❌ No |
+
+---
+
+## Findings
+
+| # | Check | Severity | Summary |
+|---|-------|----------|---------|
+| 1 | A Records | Info | 2 A record(s) found. |
+| 2 | AAAA Records | Info | No IPv6 AAAA records. |
+| 3 | MX Records | Info | 2 MX record(s) found. |
+| 4 | NS Records | Info | 4 NS record(s) found. |
+| 5 | SPF Record | Low | SPF uses ~all (softfail). Unauthorised senders are delivered but flagged. |
+| 6 | DMARC Record | Medium | DMARC policy is p=none (monitoring only). No enforcement is applied. |
+| 7 | DKIM Selectors (Passive) | Low | No DKIM records found for common selectors. DKIM may be misconfigured or using a non-standard selector. |
+| 8 | CAA Records | Low | No CAA records found. |
+| 9 | MTA-STS | Low | MTA-STS not fully configured. |
+| 10 | TLS-RPT | Low | No TLS-RPT record found. |
+| 11 | BIMI | Info | No BIMI record (optional brand indicator). |
+
+---
+
+## Evidence
+
+### A Records
+```
+35.157.26.135
+63.176.8.218
+```
+
+### AAAA Records
+_No raw evidence captured._
+
+### MX Records
+```
+10 mx01.ionos.es.
+10 mx00.ionos.es.
+```
+
+### NS Records
+```
+dns2.p06.nsone.net.
+dns3.p06.nsone.net.
+dns1.p06.nsone.net.
+dns4.p06.nsone.net.
+```
+
+### SPF Record
+```
+v=spf1 include:_spf-eu.ionos.com ~all
+```
+
+### DMARC Record
+```
+v=DMARC1; p=none
+```
+
+### DKIM Selectors (Passive)
+```
+default._domainkey.brighousesec.com → not found
+google._domainkey.brighousesec.com → not found
+selector1._domainkey.brighousesec.com → not found
+selector2._domainkey.brighousesec.com → not found
+s1._domainkey.brighousesec.com → not found
+s2._domainkey.brighousesec.com → not found
+k1._domainkey.brighousesec.com → not found
+smtp._domainkey.brighousesec.com → not found
+mail._domainkey.brighousesec.com → not found
+```
+
+### CAA Records
+_No raw evidence captured._
+
+### MTA-STS
+```
+TXT records: []
+Policy URL: https://mta-sts.brighousesec.com/.well-known/mta-sts.txt
+Policy reachable: False
+```
+
+### TLS-RPT
+_No raw evidence captured._
+
+### BIMI
+_No raw evidence captured._
+
+---
+
+## Recommendations
+
+**5. SPF Record (Low):** Upgrade to -all once all sending sources are confirmed.
+
+**6. DMARC Record (Medium):** Review rua aggregate reports, then progress to p=quarantine or p=reject.
+
+**7. DKIM Selectors (Passive) (Low):** Confirm DKIM is enabled in your mail provider. Contact the provider for the correct selector name.
+
+**8. CAA Records (Low):** Add CAA records to limit which Certificate Authorities may issue TLS certificates for this domain. Example: 0 issue "letsencrypt.org"
+
+**9. MTA-STS (Low):** Implement MTA-STS to enforce TLS for inbound SMTP. Publish a _mta-sts TXT record and host the mta-sts.txt policy file.
+
+**10. TLS-RPT (Low):** Add a TLS-RPT record at _smtp._tls.<domain> with a rua= mailto address to receive SMTP TLS failure reports.
+
+---
+
+## Retest Checklist
+
+- [ ] Verify fix for: **A Records** _Info_
+- [ ] Verify fix for: **AAAA Records** _Info_
+- [ ] Verify fix for: **MX Records** _Info_
+- [ ] Verify fix for: **NS Records** _Info_
+- [ ] Verify fix for: **SPF Record** _Low_
+- [ ] Verify fix for: **DMARC Record** _Medium_
+- [ ] Verify fix for: **DKIM Selectors (Passive)** _Low_
+- [ ] Verify fix for: **CAA Records** _Low_
+- [ ] Verify fix for: **MTA-STS** _Low_
+- [ ] Verify fix for: **TLS-RPT** _Low_
+- [ ] Verify fix for: **BIMI** _Info_
+
+---
+
+_Report generated by BSL Domain Doctor — Brighouse Security Labs._  
+_For authorised use only. Do not distribute without client consent._

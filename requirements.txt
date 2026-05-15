@@ -1,0 +1,30 @@
+# Brighouse Security Labs — External Recon Toolkit
+# Python 3.11+ required
+#
+# Install with:
+#   pip install -r requirements.txt
+
+# CLI framework
+typer[all]>=0.9.0
+
+# Beautiful terminal output
+rich>=13.0.0
+
+# HTTP requests (safe GET/HEAD only)
+requests>=2.31.0
+
+# DNS resolution
+dnspython>=2.4.0
+
+# Domain / TLD extraction
+tldextract>=5.1.0
+
+# HTML parsing (for title extraction and link discovery)
+beautifulsoup4>=4.12.0
+
+# lxml parser backend for BeautifulSoup (faster; optional but recommended)
+lxml>=4.9.0
+
+# SSL/TLS certificate inspection uses the stdlib ssl module (no extra dep needed)
+# JSON and CSV use stdlib modules (no extra deps needed)
+# urllib.parse uses stdlib (no extra deps needed)
