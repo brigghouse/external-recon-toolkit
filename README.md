@@ -48,7 +48,7 @@ Each tool produces a risk score, a plain-English label, and optional Markdown, J
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/brighousesecurity/external-recon-toolkit.git
+git clone https://github.com/brigghouse/external-recon-toolkit.git
 cd external-recon-toolkit
 
 # 2. Create and activate a virtual environment (recommended)
@@ -189,6 +189,17 @@ python tools/bsl_passive_asset_mapper.py example.com --quiet
 
 ---
 
+## Development
+
+```bash
+pip install -r requirements.txt -r requirements-dev.txt
+python -m pytest -q
+```
+
+The tests are offline (no DNS or HTTP traffic) and cover the analysis and scoring logic.
+
+---
+
 ## Example Reports
 
 See the [`examples/`](examples/) directory for sample outputs:
@@ -230,8 +241,8 @@ Brighouse Security Labs is a boutique security consultancy focused on external s
 
 We believe security should be clearly communicated and actionable — accessible to clients without a dedicated security team, and rigorous enough to stand behind in a professional context.
 
-**Website:** https://brighouse.security *(placeholder)*  
-**Contact:** hello@brighouse.security *(placeholder)*
+**Website:** https://brighousesec.com  
+**Contact:** sales@brighousesec.com
 
 ---
 

@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Offline unit tests (`tests/`) for SPF/CAA/MX analysis, header analysis, scoring and label thresholds, title/platform detection and debris scoring.
+- CI now runs the test suite in addition to syntax and `--help` smoke checks.
+
+### Fixed
+
+- Clone URL and contact details in the README and responsible-use policy.
+
+---
+
 ## [v1.0.0] — 2026-05-15
 
 Initial public release.
