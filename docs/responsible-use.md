@@ -78,7 +78,7 @@ If you discover a significant vulnerability during an authorised review, follow 
 ## Questions
 
 If you have questions about the appropriate use of this toolkit, contact:  
-hello@brighouse.security *(placeholder)*
+sales@brighousesec.com
 
 ---
 
